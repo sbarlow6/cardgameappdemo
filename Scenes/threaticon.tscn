@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://hxpnd86hdlwp"]
+
+[ext_resource type="Texture2D" uid="uid://4fnwl7yr8t56" path="res://Assets/Images/ThreatIcon.png" id="1_xhfr4"]
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 3
+anchors_preset = 0
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(10, 9)
+scale = Vector2(0.096, 0.096)
+texture = ExtResource("1_xhfr4")

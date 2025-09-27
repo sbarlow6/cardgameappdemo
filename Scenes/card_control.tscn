@@ -1,0 +1,121 @@
+[gd_scene load_steps=7 format=3 uid="uid://bcr17eg16mec"]
+
+[ext_resource type="PackedScene" uid="uid://hxpnd86hdlwp" path="res://Scenes/threaticon.tscn" id="1_7wkb7"]
+[ext_resource type="Script" uid="uid://c0tknej3l0fd0" path="res://Assets/Scripts/card.gd" id="1_ha2by"]
+[ext_resource type="Texture2D" uid="uid://4fnwl7yr8t56" path="res://Assets/Images/ThreatIcon.png" id="2_ha2by"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tnar4"]
+line_spacing = 0.0
+font_size = 27
+font_color = Color(0.32156864, 0.32156864, 0.627451, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wibs0"]
+line_spacing = 0.0
+font_size = 77
+font_color = Color(0.32156864, 0.32156864, 0.627451, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ha2by"]
+size = Vector2(210, 310)
+
+[node name="CardControl" type="Control"]
+custom_minimum_size = Vector2(107, 167)
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+script = ExtResource("1_ha2by")
+
+[node name="Card" type="Node2D" parent="."]
+scale = Vector2(0.55, 0.55)
+
+[node name="cardBack" type="Polygon2D" parent="Card"]
+polygon = PackedVector2Array(0, 0, 200, 0, 200, 300, 0, 300)
+
+[node name="cardColor" type="Polygon2D" parent="Card/cardBack"]
+color = Color(0.68307734, 0.6830774, 0.68307734, 1)
+polygon = PackedVector2Array(20, 40, 180, 40, 180, 260, 20, 260)
+
+[node name="LabelTL" type="Label" parent="Card"]
+offset_right = 48.0
+offset_bottom = 40.0
+text = "1"
+label_settings = SubResource("LabelSettings_tnar4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelTR" type="Label" parent="Card"]
+offset_left = 152.0
+offset_right = 200.0
+offset_bottom = 40.0
+text = "1"
+label_settings = SubResource("LabelSettings_tnar4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelBL" type="Label" parent="Card"]
+offset_left = 48.0
+offset_top = 300.0
+offset_right = 96.0
+offset_bottom = 340.0
+rotation = 3.1415927
+text = "1"
+label_settings = SubResource("LabelSettings_tnar4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelBR" type="Label" parent="Card"]
+offset_left = 200.0
+offset_top = 300.0
+offset_right = 248.0
+offset_bottom = 340.0
+rotation = 3.1415927
+text = "1"
+label_settings = SubResource("LabelSettings_tnar4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelMiddle" type="Label" parent="Card"]
+offset_left = 20.0
+offset_top = 40.0
+offset_right = 179.0
+offset_bottom = 260.0
+text = "1"
+label_settings = SubResource("LabelSettings_wibs0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ThreatLevel" type="HBoxContainer" parent="Card"]
+custom_minimum_size = Vector2(126, 0)
+offset_left = 38.0
+offset_right = 164.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="Control" parent="Card/ThreatLevel" instance=ExtResource("1_7wkb7")]
+layout_mode = 2
+
+[node name="ThreatLevel2" type="HBoxContainer" parent="Card"]
+custom_minimum_size = Vector2(126, 0)
+offset_left = 165.0
+offset_top = 300.0
+offset_right = 291.0
+offset_bottom = 340.0
+rotation = -3.1415927
+alignment = 1
+
+[node name="Control" type="Control" parent="Card/ThreatLevel2"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Card/ThreatLevel2/Control"]
+position = Vector2(10, 9)
+scale = Vector2(0.096, 0.096)
+texture = ExtResource("2_ha2by")
+
+[node name="Area2D" type="Area2D" parent="Card"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Card/Area2D"]
+position = Vector2(99.99988, 149.09091)
+shape = SubResource("RectangleShape2D_ha2by")
+
+[connection signal="input_event" from="Card/Area2D" to="." method="_on_self_clicked"]

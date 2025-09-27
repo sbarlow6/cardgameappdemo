@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://j0yn2ilbirqy"]
+
+[ext_resource type="Script" uid="uid://dg0grejygnw2k" path="res://Assets/Scripts/game_parent.gd" id="1_tnar4"]
+
+[node name="GameParent" type="Node2D"]
+script = ExtResource("1_tnar4")
+
+[node name="CurrentPlayersHand" type="HBoxContainer" parent="."]
+offset_top = 448.0
+offset_right = 1150.0
+offset_bottom = 663.0
+alignment = 1
+
+[node name="CardControl" parent="CurrentPlayersHand" instance_placeholder="res://Scenes/card_control.tscn"]
+layout_mode = 2
+
+[node name="TurnLabel" type="Label" parent="."]
+offset_top = 416.0
+offset_right = 1152.0
+offset_bottom = 439.0
+text = "Player 1's turn"
+horizontal_alignment = 1
+
+[node name="CurrentRows" type="Node2D" parent="."]
+position = Vector2(0, 159.99997)
+scale = Vector2(0.6, 0.6)
+
+[node name="Row1" type="HBoxContainer" parent="CurrentRows"]
+offset_top = 248.0
+offset_right = 1150.0
+offset_bottom = 463.0
+
+[node name="CardControl" parent="CurrentRows/Row1" instance_placeholder="res://Scenes/card_control.tscn"]
+layout_mode = 2
+
+[node name="Row2" type="HBoxContainer" parent="CurrentRows"]
+offset_top = 77.0
+offset_right = 1150.0
+offset_bottom = 292.0
+
+[node name="CardControl" parent="CurrentRows/Row2" instance_placeholder="res://Scenes/card_control.tscn"]
+layout_mode = 2
+
+[node name="Row3" type="HBoxContainer" parent="CurrentRows"]
+offset_top = -95.0
+offset_right = 1150.0
+offset_bottom = 120.0
+
+[node name="CardControl" parent="CurrentRows/Row3" instance_placeholder="res://Scenes/card_control.tscn"]
+layout_mode = 2
+
+[node name="Row4" type="HBoxContainer" parent="CurrentRows"]
+offset_top = -268.0
+offset_right = 1150.0
+offset_bottom = -53.0
+
+[node name="CardControl" parent="CurrentRows/Row4" instance_placeholder="res://Scenes/card_control.tscn"]
+layout_mode = 2
